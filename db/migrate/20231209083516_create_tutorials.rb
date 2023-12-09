@@ -5,7 +5,6 @@ class CreateTutorials < ActiveRecord::Migration[7.1]
       t.text :description
       t.integer :tutorial_price
       t.integer :scheduling_price
-      t.references :tutor, null: false, foreign_key: true
 
       t.timestamps
     end

@@ -30,14 +30,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_09_093222) do
     t.text "description"
     t.integer "tutorial_price"
     t.integer "scheduling_price"
-    t.bigint "tutor_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["tutor_id"], name: "index_tutorials_on_tutor_id"
-  end
-
-  create_table "tutors", force: :cascade do |t|
-    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,5 +49,4 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_09_093222) do
 
   add_foreign_key "reservations", "tutorials"
   add_foreign_key "reservations", "users"
-  add_foreign_key "tutorials", "tutors"
 end
