@@ -1,5 +1,6 @@
 class Api::V1::TutorialsController < ApplicationController
-    before_action :authenticate_user!, except: [:index, :show]
+  skip_before_action :verify_authenticity_token
+    # before_action :authenticate_user!, except: [:index, :show]
   before_action :set_tutorial, only: [:show, :update, :destroy]
 
   def index
@@ -40,6 +41,6 @@ class Api::V1::TutorialsController < ApplicationController
   end
 
   def tutorial_params
-    params.require(:tutorial).permit(:title, :description, :tutorial_price, :scheduling_price, :tutor_id)
+    params.require(:tutorial).permit(:title, :description, :tutorial_price, :scheduling_price)
   end
 end
