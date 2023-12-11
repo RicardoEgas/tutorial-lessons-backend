@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     end
   
     def debug_current_user
-      Rails.logger.debug("Current user: #{current_user.inspect}")
+      Rails.logger.debug("Current user: #{@current_user.inspect}")
     end
   
     def update_allowed_parameters
@@ -31,13 +31,9 @@ class ApplicationController < ActionController::Base
     private
 
     def set_current_user
-      @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-      puts "********************"
-      puts "session id:  #{session[:user_id]}" if session[:user_id]
-      puts "************************"
-      puts @current_user
-      puts "***************************"
-      puts "session id:  #{session[:user_id]}" if session[:user_id]
+      if session[:user_id]
+        @current_user ||= User.find_by(id: session[:user_id])
+      end
     end
   end
   
