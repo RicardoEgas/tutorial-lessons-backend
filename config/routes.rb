@@ -10,6 +10,8 @@ Rails.application.routes.draw do
         resources :tutorials, only: [:index, :show, :create, :update, :destroy] do
         resources :reservations, only: [:index, :create, :destroy]
       end
+
+      get '/user_reservations', to: 'reservations#user_reservations'
     end
   end
 

@@ -1,11 +1,16 @@
 class Api::V1::ReservationsController < ApplicationController
   skip_before_action :verify_authenticity_token
     # before_action :authenticate_user!
-  before_action :set_tutorial
+  before_action :set_tutorial, only: [:create, :destroy]
   before_action :set_reservation, only: [:destroy]
 
   def index
     reservations = @tutorial.reservations
+    render json: reservations, status: :ok
+  end
+
+  def user_reservations
+    reservations = @current_user.reservations
     render json: reservations, status: :ok
   end
 
@@ -43,4 +48,5 @@ class Api::V1::ReservationsController < ApplicationController
   def reserve_params
     params.require(:reservation).permit(:reserve_date)
   end
+
 end
