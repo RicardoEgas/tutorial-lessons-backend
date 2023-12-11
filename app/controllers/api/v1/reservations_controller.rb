@@ -1,7 +1,7 @@
 class Api::V1::ReservationsController < ApplicationController
   skip_before_action :verify_authenticity_token
     # before_action :authenticate_user!
-  before_action :set_tutorial, only: [:create, :destroy]
+  before_action :set_tutorial, only: [:index, :create, :destroy]
   before_action :set_reservation, only: [:destroy]
 
   def index
@@ -32,7 +32,7 @@ class Api::V1::ReservationsController < ApplicationController
 
   def destroy
     @reservation.destroy
-    head :no_content
+    render json: { message: "reservation deleted successfully" }, status: :ok
   end
 
   private
