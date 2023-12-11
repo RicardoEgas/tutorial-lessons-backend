@@ -10,8 +10,13 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def create
-    puts @current_user
-    reservation = @tutorial.reservations.build(user: @current_user, reserve_date: params[:reserve_date])
+    puts "tutorial:------------"
+    puts @tutorial.title
+    puts @tutorial.scheduling_price
+    puts "*********"
+    puts @current_user.name
+    puts "*-*-*-*-*-*-*"
+    reservation = @tutorial.reservations.build(reserve_params.merge(user: @current_user))
 
     if reservation.save
       render json: reservation, status: :created
@@ -33,5 +38,9 @@ class Api::V1::ReservationsController < ApplicationController
 
   def set_reservation
     @reservation = @tutorial.reservations.find(params[:id])
+  end
+
+  def reserve_params
+    params.require(:reservation).permit(:reserve_date)
   end
 end
