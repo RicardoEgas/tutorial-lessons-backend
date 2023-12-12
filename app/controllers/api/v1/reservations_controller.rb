@@ -31,8 +31,11 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def destroy
+    if @reservation.author_id == current_user.id
     @reservation.destroy
     render json: { message: "reservation deleted successfully" }, status: :ok
+    else
+      render json: { errors: "The user doesn't have the right to delete the reservation" }, status: :forbidden
   end
 
   private

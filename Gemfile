@@ -59,6 +59,9 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem 'rswag'
+  gem 'rswag-ui'
+  gem 'rswag-api'
   gem 'web-console'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
@@ -76,3 +79,6 @@ end
 
 # Gemfile
 # gem 'factory_bot_rails'
+# gem 'rswag'
+# gem 'rswag-ui'
+# gem 'rswag-api'
