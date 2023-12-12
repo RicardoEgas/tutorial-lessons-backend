@@ -13,9 +13,9 @@ class Api::V1::TutorialsController < ApplicationController
   end
 
   def create
-    tutorial = Tutorial.new(tutorial_params)
+    tutorial = Tutorial.new(tutorial_params.merge(author_id: @current_user.id))
     if tutorial.save
-      render json: tutorial, status: :created
+      render json: { message: 'Tutorial created successfully', tutorial: tutorial }, status: :ok
     else
       render json: { errors: tutorial.errors.full_messages }, status: :unprocessable_entity
     end
@@ -30,8 +30,12 @@ class Api::V1::TutorialsController < ApplicationController
   end
 
   def destroy
-    @tutorial.destroy
-    head :no_content
+    if @tutorial.author_id == @current_user.id
+      @tutorial.destroy
+      render json: { message: 'Tutorial deleted successfully' }, status: :ok
+    else
+      render json: { errors: "The user doesn't have the right to delete the tutorial" }, status: :forbidden
+    end
   end
 
   private
@@ -41,6 +45,6 @@ class Api::V1::TutorialsController < ApplicationController
   end
 
   def tutorial_params
-    params.require(:tutorial).permit(:title, :description, :tutorial_price, :scheduling_price)
+    params.require(:tutorial).permit(:title, :description, :tutorial_price, :scheduling_price, :author_id)
   end
 end
