@@ -15,7 +15,7 @@ class Api::V1::TutorialsController < ApplicationController
   def create
     tutorial = Tutorial.new(tutorial_params.merge(author_id: @current_user.id))
     if tutorial.save
-      render json: { message: 'Tutorial created successfully', tutorial: tutorial }, status: :ok
+      render json: { message: 'Tutorial created successfully', tutorial: tutorial }, status: :created
     else
       render json: { errors: tutorial.errors.full_messages }, status: :unprocessable_entity
     end
@@ -45,6 +45,6 @@ class Api::V1::TutorialsController < ApplicationController
   end
 
   def tutorial_params
-    params.require(:tutorial).permit(:title, :description, :tutorial_price, :scheduling_price, :author_id)
+    params.require(:tutorial).permit(:title, :description, :tutorial_price, :scheduling_price, :author_id, :photo)
   end
 end
