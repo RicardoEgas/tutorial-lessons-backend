@@ -73,3 +73,6 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
 end
+
+# Gemfile
+# gem 'factory_bot_rails'

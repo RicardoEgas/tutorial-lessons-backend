@@ -6,7 +6,7 @@ class CreateTutorials < ActiveRecord::Migration[7.1]
       t.integer :tutorial_price
       t.integer :scheduling_price
       t.integer :author_id
-
+      t.string :photo
       t.timestamps
     end
   end
