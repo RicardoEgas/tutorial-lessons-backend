@@ -15,12 +15,6 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def create
-    puts "tutorial:------------"
-    puts @tutorial.title
-    puts @tutorial.scheduling_price
-    puts "*********"
-    puts @current_user.name
-    puts "*-*-*-*-*-*-*"
     reservation = @tutorial.reservations.build(reserve_params.merge(user: @current_user))
 
     if reservation.save
@@ -31,8 +25,12 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def destroy
-    @reservation.destroy
-    render json: { message: "reservation deleted successfully" }, status: :ok
+    if @reservation.user.id == @current_user.id
+      @reservation.destroy
+      render json: { message: "reservation deleted successfully" }, status: :ok
+    else
+      render json: { errors: "The user doesn't have the right to delete the reservation" }, status: :forbidden
+    end
   end
 
   private
