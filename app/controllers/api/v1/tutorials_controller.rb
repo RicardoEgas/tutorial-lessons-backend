@@ -1,7 +1,7 @@
 class Api::V1::TutorialsController < ApplicationController
   skip_before_action :verify_authenticity_token
-    # before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_tutorial, only: [:show, :update, :destroy]
+  # before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_tutorial, only: %i[show update destroy]
 
   def index
     tutorials = Tutorial.all
@@ -15,7 +15,7 @@ class Api::V1::TutorialsController < ApplicationController
   def create
     tutorial = Tutorial.new(tutorial_params.merge(author_id: @current_user.id))
     if tutorial.save
-      render json: { message: 'Tutorial created successfully', tutorial: tutorial }, status: :created
+      render json: { message: 'Tutorial created successfully', tutorial: }, status: :created
     else
       render json: { errors: tutorial.errors.full_messages }, status: :unprocessable_entity
     end
