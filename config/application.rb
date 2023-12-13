@@ -18,8 +18,11 @@ module TutorialLessonsBackend
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'http://localhost:3001', 'http://127.0.0.1:3001' # Replace with the origin of your React app
-        resource '/api/*', headers: :any, methods: [:get, :post, :options]
+        origins '*' # Allow access from any origin
+        resource '/api/*',
+          headers: :any,
+          methods: [:get, :post, :put, :patch, :delete, :options, :head],
+          expose: ['Access-Control-Allow-Origin']
       end
     end
 
