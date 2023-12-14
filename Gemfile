@@ -82,3 +82,7 @@ end
 # gem 'rswag'
 # gem 'rswag-ui'
 # gem 'rswag-api'
+
+gem 'active_model_serializers'
+gem 'bcrypt'
+gem 'jwt'

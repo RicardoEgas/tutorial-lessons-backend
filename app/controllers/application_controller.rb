@@ -1,38 +1,32 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!, if: :api_request?, unless: :devise_controller?
-  before_action :debug_current_user, if: :current_user_present?, unless: :devise_controller?
-  before_action :current_user
-
-  before_action :update_allowed_parameters, if: :devise_controller?
+  skip_before_action :verify_authenticity_token
+  # before_action :current_user
 
   protected
 
-  def api_request?
-    request.format.json?
-  end
 
-  def current_user_present?
-    defined?(user_signed_in?) && user_signed_in?
-  end
+  def authenticate_user_by_token
+    token = request.headers['Authorization']&.split&.last
 
-  def debug_current_user
-    Rails.logger.debug("Current user: #{@current_user.inspect}")
-  end
-
-  def update_allowed_parameters
-    devise_parameter_sanitizer.permit(:sign_up) do |u|
-      u.permit(:name, :email, :password, :password_confirmation)
+    unless token
+      render json: { error: 'Unauthorized: Token missing' }, status: :unauthorized
+      return
     end
-    devise_parameter_sanitizer.permit(:account_update) do |u|
-      u.permit(:name, :email, :password, :current_password)
+
+    begin
+      decoded_token = decode_token(token)
+      user_id = decoded_token.first['user_id']
+      @current_user = User.find_by(id: user_id)
+
+      unless @current_user
+        render json: { error: 'Unauthorized: User not found' }, status: :unauthorized
+      end
+    rescue JWT::DecodeError => e
+      render json: { error: "Unauthorized: #{e.message}" }, status: :unauthorized
     end
   end
 
-  private
-
-  def current_user
-    return unless session[:user_id]
-    
-    @current_user ||= User.find_by(id: session[:user_id])
+  def decode_token(token)
+    JWT.decode(token, 'thesecretkeywhichwillbechangedlaterwithrandomlygeneratedkey', true, algorithm: 'HS256')
   end
 end
