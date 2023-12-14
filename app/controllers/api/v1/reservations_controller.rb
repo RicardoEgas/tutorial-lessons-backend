@@ -1,6 +1,4 @@
 class Api::V1::ReservationsController < ApplicationController
-  # skip_before_action :verify_authenticity_token
-  # before_action :authenticate_user!
   before_action :authenticate_user_by_token
   before_action :set_tutorial, only: %i[index create destroy]
   before_action :set_reservation, only: [:destroy]
