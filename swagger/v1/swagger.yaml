@@ -65,7 +65,6 @@ paths:
             application/json: {}
 
   /api/v1/tutorials:
-  #  /api/v1/tutorials:
     post:
       summary: Create a new tutorial
       requestBody:
@@ -96,6 +95,7 @@ paths:
                   photo: "photo_url"
                   created_at: "2023-12-12T09:20:00.415Z"
                   updated_at: "2023-12-12T09:20:00.415Z"
+
     get:
       summary: Get all tutorials
       responses:
@@ -110,7 +110,6 @@ paths:
                   tutorial_price: 100
                   scheduling_price: 10
                   author_id: 3
-                  photo: "django.jpg"
                   created_at: "2023-12-12T06:54:28.447Z"
                   updated_at: "2023-12-12T06:54:28.447Z"
                 - id: 8
@@ -128,7 +127,6 @@ paths:
                   tutorial_price: 100
                   scheduling_price: 10
                   author_id: 6
-                  photo: "ruby.jpg"
                   created_at: "2023-12-12T09:20:00.415Z"
                   updated_at: "2023-12-12T09:20:00.415Z"
 
@@ -161,7 +159,6 @@ paths:
                 created_at: "2023-12-12T09:21:49.648Z"
                 updated_at: "2023-12-12T09:21:49.648Z"
 
-  /api/v1/tutorials/{tutorial_id}/reservations:
     get:
       summary: Get reservations for a specific tutorial
       parameters:
