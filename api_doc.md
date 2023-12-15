@@ -64,17 +64,6 @@
     }
 ```
 
-<h1>Sign Out</h1>
-<h2>API:</h2>
-<p>http://localhost:3000/api/v1/users/sign_out</p>
-<p><strong>method: </strong>DELETE</p>
-
-### Response
-
-```sh
-
-```
-
 
 <h1>Create Tutorial</h1>
 <h2>API:</h2>
@@ -109,17 +98,17 @@
 
 ```sh
     {
-    "message": "Tutorial created successfully",
-    "tutorial": {
-            "id": 9,
-            "title": "Ruby",
-            "description": "Web design basics",
-            "tutorial_price": 100,
-            "scheduling_price": 10,
-            "author_id": 6,
-            "created_at": "2023-12-12T09:20:00.415Z",
-            "updated_at": "2023-12-12T09:20:00.415Z"
-        }
+        "message": "Tutorial created successfully",
+        "tutorial": {
+                "id": 9,
+                "title": "Ruby",
+                "description": "Web design basics",
+                "tutorial_price": 100,
+                "scheduling_price": 10,
+                "author_id": 6,
+                "created_at": "2023-12-12T09:20:00.415Z",
+                "updated_at": "2023-12-12T09:20:00.415Z"
+            }
     }
 ```
 
