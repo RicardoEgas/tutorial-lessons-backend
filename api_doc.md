@@ -59,19 +59,9 @@
             "updated_at": "2023-12-12T08:17:10.890Z",
             "email": "abd@example.com"
         },
-            "message": "Signed in successfully"
+            "message": "Signed in successfully",
+            "token": "token_string"
     }
-```
-
-<h1>Sign Out</h1>
-<h2>API:</h2>
-<p>http://localhost:3000/api/v1/users/sign_out</p>
-<p><strong>method: </strong>DELETE</p>
-
-### Response
-
-```sh
-
 ```
 
 
@@ -79,6 +69,17 @@
 <h2>API:</h2>
 <p>http://localhost:3000/api/v1/tutorials</p>
 <p><strong>method: </strong>POST</p>
+
+## Header
+
+```sh
+    {
+        headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        },
+    }
+```
 
 ### Body
 
@@ -97,17 +98,17 @@
 
 ```sh
     {
-    "message": "Tutorial created successfully",
-    "tutorial": {
-            "id": 9,
-            "title": "Ruby",
-            "description": "Web design basics",
-            "tutorial_price": 100,
-            "scheduling_price": 10,
-            "author_id": 6,
-            "created_at": "2023-12-12T09:20:00.415Z",
-            "updated_at": "2023-12-12T09:20:00.415Z"
-        }
+        "message": "Tutorial created successfully",
+        "tutorial": {
+                "id": 9,
+                "title": "Ruby",
+                "description": "Web design basics",
+                "tutorial_price": 100,
+                "scheduling_price": 10,
+                "author_id": 6,
+                "created_at": "2023-12-12T09:20:00.415Z",
+                "updated_at": "2023-12-12T09:20:00.415Z"
+            }
     }
 ```
 
@@ -115,6 +116,17 @@
 <h2>API:</h2>
 <p>hhttp://localhost:3000/api/v1/tutorials/:tutorial_id/reservations</p>
 <p><strong>method:</strong>POST</p>
+
+### Header
+
+```sh
+    {
+        headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        },
+    }
+```
 
 ### Body
 
@@ -172,6 +184,18 @@
 <h2>API:</h2>
 <p>http://localhost:3000/api/v1/user_reservations</p>
 <p><strong>method: </strong>GET</p>
+
+### Header
+
+```sh
+    {
+        headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        },
+    }
+```
+
 
 ### Response
 
@@ -253,8 +277,30 @@
 <p>http://localhost:3000/api/v1/tutorials/:tutorial_id/reservations/:id</p>
 <p><strong>method: </strong>DELETE</p>
 
+### Header
+
+```sh
+    {
+        headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        },
+    }
+```
+
 
 <h1>Delete a certain tutorial</h1>
 <h2>API:</h2>
 <p>http://localhost:3000/api/v1/tutorials/:id</p>
 <p><strong>method: </strong>DELETE</p>
+
+### Header
+
+```sh
+    {
+        headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        },
+    }
+```
