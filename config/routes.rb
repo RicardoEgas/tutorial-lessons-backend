@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       post '/users/sign_in', to: 'sessions#create'
 
       resources :tutorials, only: [:index, :show, :create, :update, :destroy] do
-        resources :reservations, only: [:index, :create, :destroy]
+        resources :reservations, only: [:index, :create, :show, :destroy]
       end
 
       get '/user_reservations', to: 'reservations#user_reservations'

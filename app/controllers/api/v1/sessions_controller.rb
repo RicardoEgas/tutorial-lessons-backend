@@ -7,6 +7,7 @@ class Api::V1::SessionsController < ApplicationController
       token = encode_token(user)
       render json: {
         message: 'User is logged in',
+        user: user,
         token: token,
       }, status: :ok
     else
