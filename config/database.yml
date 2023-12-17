@@ -20,8 +20,8 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: postgres
   # password: 13
-  # password: fekdil123
-  password: Duque
+  password: fekdil123
+  # password: Duque
 
 development:
   <<: *default
