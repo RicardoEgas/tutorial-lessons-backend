@@ -22,14 +22,14 @@ class Api::V1::ReservationsController < ApplicationController
   
     reservations.each do |reservation|
       x = {
-        reservation: reservation.as_json.merge(reservation.tutorial.as_json),
+        reservation: reservation.as_json.merge(tutorialTitle: reservation.tutorial.title),
+        tutorial: reservation.tutorial.as_json
       }
       @reservations_output << x
     end
   
     render json: @reservations_output, status: :ok
   end
-  
   
 
   def create
