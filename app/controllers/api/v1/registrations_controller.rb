@@ -7,7 +7,8 @@ class Api::V1::RegistrationsController < ApplicationController
       if user.save
         render json: { message: 'User created successfully', user: user }, status: :ok
       else
-        render json: { error: 'Something went wrong when creating a new user' }, status: :unprocessable_entity
+        # render json: { error: 'Something went wrong when creating a new user' }, status: :unprocessable_entity
+        render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
       end
     end
   end

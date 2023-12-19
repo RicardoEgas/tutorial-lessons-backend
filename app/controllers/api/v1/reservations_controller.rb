@@ -1,11 +1,19 @@
 class Api::V1::ReservationsController < ApplicationController
   before_action :authenticate_user_by_token
-  before_action :set_tutorial, only: %i[index create destroy]
-  before_action :set_reservation, only: [:destroy]
+  before_action :set_tutorial, only: %i[index create destroy show]
+  before_action :set_reservation, only: [:destroy, :show]
 
   def index
     reservations = @tutorial.reservations
     render json: reservations, status: :ok
+  end
+
+  def show
+    if @reservation.user.id == @current_user.id
+      render json: { reservation: @reservation, message: 'reservation' }, status: :ok
+    else
+      render json: { errors: "This reservation does not belong to this user" }, status: :forbidden
+    end
   end
 
   def user_reservations

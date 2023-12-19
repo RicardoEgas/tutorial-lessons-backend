@@ -228,6 +228,42 @@
     ]
 ```
 
+<h1>Get a specific reservation</h1>
+<h2>API:</h2>
+<p>http://localhost:3000/api/v1/tutorials/:tutorial_id/reservations/:id</p>
+<p><strong>method: </strong>GET</p>
+
+### Header
+
+```sh
+    {
+        headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        },
+    }
+```
+
+
+### Response
+
+```sh
+    {
+        "reservation": {
+            "id": 2,
+            "user_id": 1,
+            "tutorial_id": 3,
+            "reserve_date": "2023-12-28",
+            "created_at": "2023-12-14T06:53:17.552Z",
+            "updated_at": "2023-12-14T06:53:17.552Z"
+        },
+        "message": "reservation"
+    }
+```
+
+
+
+
 
 <h1>Get all the tutorials</h1>
 <h2>API:</h2>
