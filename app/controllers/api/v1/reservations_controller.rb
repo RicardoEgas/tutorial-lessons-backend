@@ -18,8 +18,19 @@ class Api::V1::ReservationsController < ApplicationController
 
   def user_reservations
     reservations = @current_user.reservations
-    render json: reservations, status: :ok
+    @reservations_output = []
+  
+    reservations.each do |reservation|
+      x = {
+        reservation: reservation.as_json.merge(tutorialTitle: reservation.tutorial.title),
+        tutorial: reservation.tutorial.as_json
+      }
+      @reservations_output << x
+    end
+  
+    render json: @reservations_output, status: :ok
   end
+  
 
   def create
     reservation = @tutorial.reservations.build(reserve_params.merge(user: @current_user))
