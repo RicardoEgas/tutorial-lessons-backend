@@ -68,3 +68,16 @@ Clone this repository to your desired folder:
   cd tutorial-lessons-backend
   git clone https://github.com/RicardoEgas/tutorial-lessons-backend.git
 ```
+
+### Install
+
+Install this project with:
+
+```sh
+  cd tutorial-lessons-backend
+  bundle install
+```
+
+```sh
+  gem install --no-document rubocop -v '>= 1.0, < 2.0'
+```
