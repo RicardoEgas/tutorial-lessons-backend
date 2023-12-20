@@ -107,9 +107,9 @@ To run tests, run the following command:
 👤 **Author1**
 _[ZUWAIRA SADIQ]_ 
 
-- GitHub: [@Zuwairanajma](https://github.com/Zuwairanajma)
-- Twitter: [@SadiqJuwairiyya](https://twitter.com/SadiqJuwairiyya)
-- LinkedIn: [Zuwaira Sadiq](https://www.linkedin.com/in/zuwaira-sadiq-566b891b0?)
+- GitHub: [@githubhandle](https://github.com/Zuwairanajma)
+- Twitter: [@twitterhandle](https://twitter.com/SadiqJuwairiyya)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/zuwaira-sadiq-566b891b0?)
 
 👤 **Author2**
 _[RICARDO EGAS]_
@@ -124,6 +124,12 @@ _[MOHAMMED ALI REZA]_
 - GitHub: [@githubhandle](https://github.com/AliRezaBmeDu)
 - Twitter: [@twitterhandle](https://twitter.com/share_insider)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/mohammad-ali-reza-25686428b/)
+
+👤 **Author4**
+_[MOHAMMED NEWTON OMBESE]_
+- GitHub: [@githubhandle](https://github.com/mohammadnewton )
+- Twitter: [@twitterhandle](https://x.com/mohanewto200?t=spjKmUAKE443QaOp_7iqIg&s=09)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/mohammad-newton-ombese?)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
