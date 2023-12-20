@@ -27,3 +27,15 @@
 **[Tutotial-lessons-back_end]** is a backend rails api that provides service to the front-end react app to fetch data for tutorial reservation.
 
 ## [Link to the front-end repo](https://github.com/RicardoEgas/tutorial-lessons-frontend.git)
+
+
+## 🛠 Built With <a name="built-with"></a>
+
+### Tech Stack <a name="tech-stack"></a>
+
+<details>
+  <summary>Ruby on Rails</summary>
+  <ul>
+    <li><a>https://rubyonrails.org/</a></li>
+  </ul>
+</details>
