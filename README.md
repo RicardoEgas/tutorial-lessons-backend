@@ -118,6 +118,13 @@ _[RICARDO EGAS]_
 - Twitter: [@twitterhandle](https://twitter.com/RjEgas)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/ricardo-egas-952125136)
 
+👤 **Author3**
+_[MOHAMMED ALI REZA]_
+
+- GitHub: [@githubhandle](https://github.com/AliRezaBmeDu)
+- Twitter: [@twitterhandle](https://twitter.com/share_insider)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/mohammad-ali-reza-25686428b/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
