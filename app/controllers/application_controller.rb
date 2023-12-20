@@ -7,9 +7,6 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user_by_token
     token = request.headers['Authorization']&.split&.last
-    puts '************'
-    puts token
-    puts '***************'
 
     unless token
       render json: { error: 'Unauthorized: Token missing' }, status: :unauthorized
@@ -18,10 +15,6 @@ class ApplicationController < ActionController::Base
 
     begin
       decoded_token = decode_token(token)
-
-      puts '@@@@@@@@@@@@@@'
-      puts decoded_token
-      puts '@@@@@@@@@@@@@@@@@@'
       user_id = decoded_token.first['user_id']
       @current_user = User.find_by(id: user_id)
 

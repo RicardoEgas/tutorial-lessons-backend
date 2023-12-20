@@ -3,7 +3,20 @@ class Api::V1::TutorialsController < ApplicationController
   before_action :set_tutorial, only: %i[show update destroy]
 
   def index
-    tutorials = Tutorial.all
+    all_tutorials = Tutorial.all
+    tutorials = []
+
+    all_tutorials.each do |tutorial|
+      reserve_users = tutorial.reservations.map(&:user_id)
+
+      # Create a hash with the tutorial details and reserve_users attribute
+      tutorial_data = {
+        tutorial: tutorial.as_json.merge(reserve_users:)
+      }
+
+      tutorials << tutorial_data[:tutorial]
+    end
+
     render json: { message: 'All the tutorials', tutorials: }, status: :ok
   end
 
