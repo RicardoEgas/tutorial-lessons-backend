@@ -39,3 +39,12 @@
     <li><a>https://rubyonrails.org/</a></li>
   </ul>
 </details>
+
+### Key Features <a name="key-features"></a>
+
+- **[Render tutorials]**
+- **[Add tutorials]**
+- **[Delete tutorials]**
+- **[Reserve tutorials]**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
