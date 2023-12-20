@@ -27,7 +27,9 @@ module TutorialLessonsBackend
           headers: :any,
           methods: [:get, :post, :put, :patch, :delete, :options, :head],
           # expose: ['Access-Control-Allow-Origin']
-          expose: ['Access-Token', 'Uid', 'Client', 'Expiry', 'Token-Type']
+          #  expose: ['Access-Token', 'Uid', 'Client', 'Expiry', 'Token-Type']
+          # expose: '*'
+          expose: ['Access-Token']
       end
     end
 
