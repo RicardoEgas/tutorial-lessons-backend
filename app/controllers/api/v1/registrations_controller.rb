@@ -5,7 +5,7 @@ class Api::V1::RegistrationsController < ApplicationController
     else
       user = User.new(reg_params)
       if user.save
-        render json: { message: 'User created successfully', user: user }, status: :ok
+        render json: { message: 'User created successfully', user: }, status: :ok
       else
         render json: { error: 'Something went wrong when creating a new user' }, status: :unprocessable_entity
       end
@@ -19,6 +19,6 @@ class Api::V1::RegistrationsController < ApplicationController
   end
 
   def email_already_exists(email)
-    User.exists?(email: email)
+    User.exists?(email:)
   end
 end

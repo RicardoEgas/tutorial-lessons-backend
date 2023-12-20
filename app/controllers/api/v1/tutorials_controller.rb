@@ -4,7 +4,7 @@ class Api::V1::TutorialsController < ApplicationController
 
   def index
     tutorials = Tutorial.all
-    render json: { message: 'All the tutorials', tutorials: tutorials }, status: :ok
+    render json: { message: 'All the tutorials', tutorials: }, status: :ok
   end
 
   def show
@@ -14,7 +14,7 @@ class Api::V1::TutorialsController < ApplicationController
   def create
     tutorial = Tutorial.new(tutorial_params.merge(author_id: @current_user.id))
     if tutorial.save
-      render json: { message: 'Tutorial created successfully', tutorial: tutorial}, status: :created
+      render json: { message: 'Tutorial created successfully', tutorial: }, status: :created
     else
       render json: { errors: tutorial.errors.full_messages }, status: :unprocessable_entity
     end
