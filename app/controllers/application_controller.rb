@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
 
   protected
 
-
   def authenticate_user_by_token
     token = request.headers['Authorization']&.split&.last
 
