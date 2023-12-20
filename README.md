@@ -62,3 +62,9 @@ In order to run this project you need:
 - Install Postgresql
 
 ### Setup
+Clone this repository to your desired folder:
+
+```sh
+  cd tutorial-lessons-backend
+  git clone https://github.com/RicardoEgas/tutorial-lessons-backend.git
+```
