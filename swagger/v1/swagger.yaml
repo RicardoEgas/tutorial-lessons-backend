@@ -43,6 +43,7 @@ paths:
                 password: "password123"
       responses:
         '200':
+        
           description: Signed in successfully
           content:
             application/json:
