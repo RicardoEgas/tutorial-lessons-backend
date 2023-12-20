@@ -117,3 +117,11 @@ _[RICARDO EGAS]_
 - GitHub: [@githubhandle](https://github.com/RicardoEgas)
 - Twitter: [@twitterhandle](https://twitter.com/RjEgas)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/ricardo-egas-952125136)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- [] **[Rendering and reserving extracurricula courses]**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
