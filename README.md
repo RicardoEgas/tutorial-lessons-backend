@@ -81,3 +81,14 @@ Install this project with:
 ```sh
   gem install --no-document rubocop -v '>= 1.0, < 2.0'
 ```
+
+### Usage
+
+To run the project, execute the following command:
+
+```sh
+  rails db:create
+  rails db:migrate
+  rails db:seed
+  rails server
+```
