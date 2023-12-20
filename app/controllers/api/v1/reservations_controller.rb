@@ -1,7 +1,7 @@
 class Api::V1::ReservationsController < ApplicationController
   skip_before_action :verify_authenticity_token
-    # before_action :authenticate_user!
-  before_action :set_tutorial, only: [:index, :create, :destroy]
+  # before_action :authenticate_user!
+  before_action :set_tutorial, only: %i[index create destroy]
   before_action :set_reservation, only: [:destroy]
 
   def index
@@ -27,7 +27,7 @@ class Api::V1::ReservationsController < ApplicationController
   def destroy
     if @reservation.user.id == @current_user.id
       @reservation.destroy
-      render json: { message: "reservation deleted successfully" }, status: :ok
+      render json: { message: 'reservation deleted successfully' }, status: :ok
     else
       render json: { errors: "The user doesn't have the right to delete the reservation" }, status: :forbidden
     end
@@ -46,5 +46,4 @@ class Api::V1::ReservationsController < ApplicationController
   def reserve_params
     params.require(:reservation).permit(:reserve_date)
   end
-
 end
