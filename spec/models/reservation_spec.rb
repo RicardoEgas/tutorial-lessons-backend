@@ -9,3 +9,5 @@ RSpec.describe Reservation, type: :model do
         reservation.reserve_date = Faker::Date.forward(days: 23)
         expect(reservation).to be_valid
       end
+    end
+end

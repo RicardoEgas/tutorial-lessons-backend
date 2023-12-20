@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_09_093222) do
     t.bigint "user_id"
     t.bigint "tutorial_id"
     t.date "reserve_date"
+    t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tutorial_id"], name: "index_reservations_on_tutorial_id"
