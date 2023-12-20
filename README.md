@@ -92,3 +92,12 @@ To run the project, execute the following command:
   rails db:seed
   rails server
 ```
+### Run tests
+
+To run tests, run the following command:
+
+```sh
+  rspec
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
