@@ -22,12 +22,12 @@ tutorials_data = [
     updated_at: Time.now
   },
   {
-    title: "Ruby on Rails Crash Course",
-    description: "Get started with Ruby on Rails and build your first web application.",
-    tutorial_price: 75,
-    scheduling_price: 40,
+    title: "Ruby Crash Course",
+    description: "Get started with Rubyand build real world applications.",
+    tutorial_price: 125,
+    scheduling_price: 70,
     author_id: 3,
-    photo: "rails_crash_course.jpg",
+    photo: "ruby_crash_course.jpg",
     created_at: Time.now,
     updated_at: Time.now
   }
