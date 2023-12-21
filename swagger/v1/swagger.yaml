@@ -1,0 +1,243 @@
+openapi: 3.0.0
+info:
+  title: Tutorial Lessons API
+  version: 1.0.0
+paths:
+  /api/v1/users:
+    post:
+      summary: Create a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            example:
+              user:
+                name: "abd"
+                email: "abd@example.com"
+                password: "password123"
+                password_confirmation: "password123"
+      responses:
+        '200':
+          description: User created successfully
+          content:
+            application/json:
+              example:
+                user:
+                  id: 7
+                  name: "abd"
+                  created_at: "2023-12-12T09:16:01.209Z"
+                  updated_at: "2023-12-12T09:16:01.209Z"
+                  email: "abd@example.com"
+                message: "User created successfully"
+
+  /api/v1/users/sign_in:
+    post:
+      summary: Sign in
+      requestBody:
+        required: true
+        content:
+          application/json:
+            example:
+              user:
+                email: "abd@example.com"
+                password: "password123"
+      responses:
+        '200':
+          description: Signed in successfully
+          content:
+            application/json:
+              example:
+                user:
+                  id: 7
+                  name: "abd"
+                  created_at: "2023-12-12T08:17:10.890Z"
+                  updated_at: "2023-12-12T08:17:10.890Z"
+                  email: "abd@example.com"
+                message: "Signed in successfully"
+
+  /api/v1/users/sign_out:
+    delete:
+      summary: Sign out
+      responses:
+        '200':
+          description: Signed out successfully
+          content:
+            application/json: {}
+
+  /api/v1/tutorials:
+  #  /api/v1/tutorials:
+    post:
+      summary: Create a new tutorial
+      requestBody:
+        required: true
+        content:
+          application/json:
+            example:
+              tutorial:
+                title: "Rails"
+                description: "Web design basics"
+                tutorial_price: 100
+                scheduling_price: 10
+                photo: "photo_url"
+      responses:
+        '201':
+          description: Tutorial created successfully
+          content:
+            application/json:
+              example:
+                message: "Tutorial created successfully"
+                tutorial:
+                  id: 9
+                  title: "Ruby"
+                  description: "Web design basics"
+                  tutorial_price: 100
+                  scheduling_price: 10
+                  author_id: 6
+                  photo: "photo_url"
+                  created_at: "2023-12-12T09:20:00.415Z"
+                  updated_at: "2023-12-12T09:20:00.415Z"
+    get:
+      summary: Get all tutorials
+      responses:
+        '200':
+          description: List of tutorials
+          content:
+            application/json:
+              example:
+                - id: 7
+                  title: "Django"
+                  description: "Web design basics"
+                  tutorial_price: 100
+                  scheduling_price: 10
+                  author_id: 3
+                  photo: "django.jpg"
+                  created_at: "2023-12-12T06:54:28.447Z"
+                  updated_at: "2023-12-12T06:54:28.447Z"
+                - id: 8
+                  title: "Rails"
+                  description: "Web design basics"
+                  tutorial_price: 100
+                  scheduling_price: 10
+                  author_id: 6
+                  photo: "rails.jpg"
+                  created_at: "2023-12-12T08:18:14.565Z"
+                  updated_at: "2023-12-12T08:18:14.565Z"
+                - id: 9
+                  title: "Ruby"
+                  description: "Web design basics"
+                  tutorial_price: 100
+                  scheduling_price: 10
+                  author_id: 6
+                  photo: "ruby.jpg"
+                  created_at: "2023-12-12T09:20:00.415Z"
+                  updated_at: "2023-12-12T09:20:00.415Z"
+
+  /api/v1/tutorials/{tutorial_id}/reservations:
+    post:
+      summary: Create a new reservation for a tutorial
+      parameters:
+        - in: path
+          name: tutorial_id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            example:
+              reservation:
+                reserve_date: "2023-12-28"
+      responses:
+        '201':
+          description: Reservation created successfully
+          content:
+            application/json:
+              example:
+                id: 5
+                user_id: 6
+                tutorial_id: 9
+                reserve_date: "2023-12-28"
+                created_at: "2023-12-12T09:21:49.648Z"
+                updated_at: "2023-12-12T09:21:49.648Z"
+
+  /api/v1/tutorials/{tutorial_id}/reservations:
+    get:
+      summary: Get reservations for a specific tutorial
+      parameters:
+        - in: path
+          name: tutorial_id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: List of reservations
+          content:
+            application/json:
+              example:
+                - id: 5
+                  user_id: 6
+                  tutorial_id: 9
+                  reserve_date: "2023-12-28"
+                  created_at: "2023-12-12T09:21:49.648Z"
+                  updated_at: "2023-12-12T09:21:49.648Z"
+                - id: 6
+                  user_id: 2
+                  tutorial_id: 9
+                  reserve_date: "2023-12-28"
+                  created_at: "2023-12-12T09:24:19.139Z"
+                  updated_at: "2023-12-12T09:24:19.139Z"
+
+  /api/v1/user_reservations:
+    get:
+      summary: Get reservations for the signed-in user
+      responses:
+        '200':
+          description: List of reservations for the user
+          content:
+            application/json:
+              example:
+                - id: 6
+                  user_id: 2
+                  tutorial_id: 9
+                  reserve_date: "2023-12-28"
+                  created_at: "2023-12-12T09:24:19.139Z"
+                  updated_at: "2023-12-12T09:24:19.139Z"
+                - id: 7
+                  user_id: 2
+                  tutorial_id: 6
+                  reserve_date: "2023-12-28"
+                  created_at: "2023-12-12T09:26:03.217Z"
+                  updated_at: "2023-12-12T09:26:03.217Z"
+                - id: 8
+                  user_id: 2
+                  tutorial_id: 8
+                  reserve_date: "2023-12-28"
+                  created_at: "2023-12-12T09:26:14.942Z"
+                  updated_at: "2023-12-12T09:26:14.942Z"
+
+  /api/v1/tutorials/{tutorial_id}/reservations/{id}:
+    delete:
+      summary: Delete a reservation for a tutorial
+      parameters:
+        - in: path
+          name: tutorial_id
+          required: true
+          schema:
+            type: integer
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+
+  /api/v1/tutorials/{id}:
+    delete:
+      summary: Delete a tutorial
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
