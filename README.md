@@ -14,7 +14,7 @@
   - [Install](#install)
   - [Usage](#usage)
   - [Run tests](#run-tests)
-- [:busts_in_silhouette: Authors](#authors)
+- [:busts_in_silhouette: Authors](#👥-authors)
 - [:telescope: Future Features](#future-features)
 - [:handshake: Contributing](#contributing)
 - [:star:️ Show your support](#support)
@@ -28,6 +28,11 @@
 
 ## [Link to the front-end repo](https://github.com/RicardoEgas/tutorial-lessons-frontend.git)
 
+## [Link to the kanbarn board](https://github.com/RicardoEgas/tutorial-lessons-backend/projects/1)
+
+## [Link to the kanbarn board at its initial state](.https://github.com/RicardoEgas/tutorial-lessons-backend/issues/10)
+
+## A Team of 4 Members worked on this project - [See list of authors](#👥-authors))
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -102,7 +107,7 @@ To run tests, run the following command:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 👥 Authors <a name="authors"></a>
+## 👥 Authors <a id="👥-authors"></a>
 
 👤 **Author1**
 _[ZUWAIRA SADIQ]_ 
