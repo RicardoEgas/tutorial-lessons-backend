@@ -20,6 +20,16 @@ tutorials_data = [
     photo: "rails_crash_course.jpg",
     created_at: Time.now,
     updated_at: Time.now
+  },
+  {
+    title: "Ruby on Rails Crash Course",
+    description: "Get started with Ruby on Rails and build your first web application.",
+    tutorial_price: 75,
+    scheduling_price: 40,
+    author_id: 3,
+    photo: "rails_crash_course.jpg",
+    created_at: Time.now,
+    updated_at: Time.now
   }
 ]
 
